@@ -10,6 +10,15 @@ window.minsize(600, 800)
 window.resizable(False, False)
 window.configure(bg="cornflowerblue",padx=30,pady=30)
 
+
+#image
+
+resim=tk.PhotoImage(file="topSecret.png")
+resimLb=tk.Label(image=resim,background="cornflowerblue")
+resimLb.pack(pady=20)
+
+
+#encode
 def encode(key,clear):
     enc=[]
     for i in range(len(clear)):
@@ -18,6 +27,7 @@ def encode(key,clear):
         enc.append(enc_c)
     return base64.urlsafe_b64encode("".join(enc).encode()).decode()
 
+#decode
 def decode(key,enc):
     dec=[]
     enc=base64.urlsafe_b64decode(enc).decode()
@@ -81,10 +91,6 @@ FONT2 = font.Font(family='Comic Sans MS', size=16, weight='normal')
 
 SIFRE="archon"
 
-#Label
-label = tk.Label(text="Secret Quiz", background="cornflowerblue", font=FONT,foreground='white')
-label.pack(pady=40)
-
 
 #Label
 label2 = tk.Label(text="Başlığı giriniz", background="cornflowerblue", font=FONT2,foreground='white')
@@ -100,7 +106,7 @@ label3 = tk.Label(text="Notunuzu giriniz", background="cornflowerblue", font=FON
 label3.pack()
 
 #Not Text
-txtNot=tk.Text(height=20,width=50)
+txtNot=tk.Text(height=18,width=45)
 txtNot.pack(pady=5)
 
 #Label
